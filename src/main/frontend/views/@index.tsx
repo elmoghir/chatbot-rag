@@ -1,6 +1,8 @@
-export default function index(){
+import "../styles/styles.css";
+import "bootstrap/dist/css/bootstrap.min.css"
+export default function Index(){
     return (
-        <div>
+        <div className="p-m">
             <h1>Home Page</h1>
         </div>
     );
