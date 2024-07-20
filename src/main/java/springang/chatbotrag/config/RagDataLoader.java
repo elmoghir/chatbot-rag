@@ -1,5 +1,6 @@
 package springang.chatbotrag.config;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.reader.pdf.PagePdfDocumentReader;
@@ -24,7 +25,7 @@ public class RagDataLoader {
     private Resource pdfResource;
     @Value("store-data-v1.json")
     private String storeFile;
-    @Bean
+//    @Bean
     public SimpleVectorStore simpleVectorStore(EmbeddingModel embeddingModel){
         SimpleVectorStore vectorStore = new SimpleVectorStore(embeddingModel);
         String fileStore = Path.of ("src","main","resources","store")
@@ -43,4 +44,9 @@ public class RagDataLoader {
         }
         return vectorStore;
     }
+    @PostConstruct
+    public void initStore(){
+
+    }
 }
+
